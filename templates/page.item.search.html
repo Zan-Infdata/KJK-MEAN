@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Kje je kaj?</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/boxes.svg" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href='assets/bootstrap/css/bootstrap.min.css' rel='stylesheet' />
+        <link href='assets/bootstrap4-toggle/css/bootstrap4-toggle.min.css' rel='stylesheet' />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand font-weight-bold" href="#!">Kje je kaj?</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Lokacije</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Iskalnik opreme</a></li>
+						<li class="nav-item"><a class="nav-link" href="#!">Vzemi opremo</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dodaj</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">Dodaj opremo</a></li>
+                                <!-- <li><hr class="dropdown-divider" /></li> -->
+                                <li><a class="dropdown-item" href="#!">Dodaj lokacijo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+					<ul class='navbar-nav mb-2 mb-lg-0 ms-lg-4 ml-auto'>
+						<li class='nav-item'><a class='nav-link' aria-current='page' href='#'>Izpiši me</a></li>
+					</ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            Moja oprema
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        
+		
+		<!--  TUKI NOTER DAS OSTAL HTML   -->
+		
+
+        <!-- Header-->    
+        <header class='bg-dark py-5'>    
+            <div class='container px-4 px-lg-5 my-1'>    
+                <div class='text-center text-white'>    
+                    <h1 class='display-4 fw-bolder'>Išči opremo</h1>    
+
+                    <p class='lead fw-normal text-white-50 mb-0'>Iskanje aktivne opreme po vseh lokacijah        
+                    <span>    
+                    </span>    
+                    </p>    
+
+                </div>    
+            </div>    
+        </header>    
+        <!-- Section-->    
+        <section class='py-5'>
+
+
+            <div class="container px-4 px-lg-5 mt-5" id="container">
+
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="inputType"> Išči po tipu</label>
+                            <select id="inputType" class="form-control">
+                                <option value="0">Izberi...</option>
+                                <option value="4">JAMBOREE</option>
+                                <option value="3">LOPATA</option>
+                                <option value="2">SEKIRA</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputType"> Išči po osebi</label>
+                            <select id="inputType" class="form-control">
+                                <option value="0">Izberi...</option>
+                                <option value="4">Oseba 1</option>
+                                <option value="3">Oseba 2</option>
+                                <option value="2">Oseba 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputType"> Išči po lokaciji</label>
+                            <select id="inputType" class="form-control">
+                                <option value="0">Izberi...</option>
+                                <option value="4">Lokacija 1</option>
+                                <option value="3">Lokacija 2</option>
+                                <option value="2">Lokacija 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputType"> Datum od.</label>
+                            <select id="inputType" class="form-control">
+                                <option value="0">Izberi...</option>
+                                <option value="4">lala</option>
+                                <option value="3">lala</option>
+                                <option value="2">lala</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputType"> Datum do.</label>
+                            <select id="inputType" class="form-control">
+                                <option value="0">Izberi...</option>
+                                <option value="4">lala</option>
+                                <option value="3">lala</option>
+                                <option value="2">lala</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </form>
+
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center table-responsive" id="row">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">št.</th>
+                                <th scope="col">Tip</th>
+                                <th scope="col">Koda</th>
+                                <th scope="col">Lokacija</th>
+                                <th scope="col">Prestavil</th>
+                                <th scope="col">Datum</th>
+                                <th scope="col">Namen</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="col">1</th>
+                                <td>JAMBOREE</td>
+                                <td>JMB_0001</td>
+                                <td>Skladišče-Rakovnik</td>
+                                <td>test me</td>
+                                <td>6. 10. 2022</td>
+                                <td>SKLADIŠČENJE</td>
+                                <td>
+                                    <f class="d-flex" action="#">
+                                        <button class="btn btn-outline-dark" type="submit"><i class="bi bi-three-dots"></i></button>
+                                    </f>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">2</th><td>LOPATA</td>
+                                <td>LOP_0001</td>
+                                <td>Skladišče-Rakovnik</td>
+                                <td>test me</td>
+                                <td>6. 10. 2022</td>
+                                <td>SKLADIŠČENJE</td>
+                                <td>
+                                    <f class="d-flex" action="#">
+                                        <button class="btn btn-outline-dark" type="submit"><i class="bi bi-three-dots"></i></button>
+                                    </f>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">3</th>
+                                <td>SEKIRA</td>
+                                <td>SEK_0001</td>
+                                <td>Skladišče-Rakovnik</td>
+                                <td>test me</td>
+                                <td>6. 10. 2022</td>
+                                <td>SKLADIŠČENJE</td>
+                                <td>
+                                    <f class="d-flex" action="#">
+                                        <button class="btn btn-outline-dark" type="submit"><i class="bi bi-three-dots"></i></button>
+                                    </f>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">4</th>
+                                <td>SEKIRA</td>
+                                <td>SEK_0002</td>
+                                <td>Skladišče-Rakovnik</td>
+                                <td>test me</td>
+                                <td>6. 10. 2022</td>
+                                <td>SKLADIŠČENJE</td>
+                                <td>
+                                    <f class="d-flex" action="#">
+                                        <button class="btn btn-outline-dark" type="submit"><i class="bi bi-three-dots"></i></button>
+                                    </f>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                </div>
+            </div>  
+
+        </section>
+		
+		
+		
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; KJK 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<section>
+  <div class="row mt-4" *ngFor="let loc of myItems">
+    <div class="col-12 text-center mb-2"><h3>{{ loc.name }}</h3></div>
+    <div class="col-md-6 col-lg-4 px-0" *ngFor="let item of loc.items | filterMyItems: myUserId():iteration">
+      <div class="card m-1">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-9">
+              <b>{{ item.name }}</b> ({{ item.quantity }}x)<br>
+              <small *ngIf="item.dateTaken" style="font-size:0.7rem;">Izposojeno: {{ item.dateTaken | date: 'longDate' }}</small>
+            </div>
+            <div class="col-3 text-right pt-1">
+              <button class="btn btn-outline-dark" (click)="returnItem(loc,item)"><i class="bi bi-dash-lg"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

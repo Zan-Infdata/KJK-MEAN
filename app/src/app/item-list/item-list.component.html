@@ -1,0 +1,61 @@
+<section class='py-5'>
+    <div class="container pt-2 px-4 px-lg-5 mat-elevation-z8" id="container">
+
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target)" placeholder="Filter">
+        </mat-form-field>
+
+
+
+        <mat-table #table [dataSource]="items">
+
+            
+            <ng-container matColumnDef="code">
+            <mat-header-cell *matHeaderCellDef> Koda </mat-header-cell>
+            <mat-cell *matCellDef="let itm" class="ml-1"> {{ itm.code }} </mat-cell>
+            </ng-container>
+        
+        
+            <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Naziv opreme </mat-header-cell>
+            <mat-cell *matCellDef="let itm" class="ml-1"> {{ itm.name }} </mat-cell>
+            </ng-container>
+        
+
+            <ng-container matColumnDef="desc">
+            <mat-header-cell *matHeaderCellDef> Opis </mat-header-cell>
+            <mat-cell *matCellDef="let itm" class="ml-1"> {{ itm.description }} </mat-cell>
+            </ng-container>
+        
+        
+            <ng-container matColumnDef="loc">
+            <mat-header-cell *matHeaderCellDef> Lokacija </mat-header-cell>
+            <mat-cell *matCellDef="let itm" class="ml-1"> {{ itm.defaultLocation.name }} </mat-cell>
+            </ng-container>
+
+        
+            <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef> Količina </mat-header-cell>
+            <mat-cell *matCellDef="let itm" class="ml-1"> {{ itm.quantity }} </mat-cell>
+            </ng-container>
+
+
+        
+            <ng-container matColumnDef="btn">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let itm" class="ml-1"> <a [routerLink]="['/item-show', itm._id]" class="btn btn-outline-dark " type="button"><i class="bi bi-pencil-square"></i></a> </mat-cell>
+            </ng-container>  
+
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons
+            aria-label="Select page items">
+        </mat-paginator>
+
+    </div>
+</section>

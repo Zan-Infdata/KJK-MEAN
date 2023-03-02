@@ -1,0 +1,72 @@
+<section>
+  <div class="form-row row">
+    <label for="inputType" class="col-sm-4 offset-md-2 col-form-label">Izberi trenutno lokacijo:</label>
+    <div class="form-group col-md-4">
+      <select class="form-control form-select" [(ngModel)]="currentLocation"
+        (ngModelChange)="getAvailableItems($event)" [disabled]="takeItems.length > 0">
+        <option [value]="null">izberi lokacijo...</option>
+        <option *ngFor="let loc of pLocations" [value]="loc._id">{{ loc.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row row" *ngIf="currentLocation">
+    <label for="inputType" class="col-sm-4 offset-md-2 col-form-label">Izberi lokacijo, kamor greš z opremo:</label>
+    <div class="form-group col-md-4">
+      <select class="form-control form-select" [(ngModel)]="toLocation" [disabled]="takeItems.length > 0">
+        <option [value]="null">izberi lokacijo...</option>
+        <option *ngFor="let loc of tLocations" [value]="loc._id">{{ loc.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mt-4" *ngIf="currentLocation && toLocation && (availableItems.length > 0 || takeItems.length > 0)">
+    <div class="col-md-6">
+      <table class="table table-responsive table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Koda</th>
+            <th scope="col">Naziv opreme</th>
+            <th scope="col">Vrsta</th>
+            <th scope="col">Opis</th>
+            <th scope="col" class="text-center">Na voljo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of availableItems" class="align-middle">
+            <td>{{ item.code }}</td>
+            <th scope="col">{{ item.name }}</th>
+            <td>{{ item.itemType }}</td>
+            <td>{{ item.description }}</td>
+            <td class="text-center">{{ item.quantity }}</td>
+            <td><button class="btn btn-outline-dark" (click)="takeItem(item._id)"><i class="bi bi-plus-lg"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-responsive table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Koda</th>
+            <th scope="col">Naziv opreme</th>
+            <th scope="col" class="text-center">Vzemam</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of takeItems">
+            <td>{{ item.code }}</td>
+            <th scope="col">{{ item.name }}</th>
+            <td class="text-center">{{ item.quantity }}</td>
+            <td><button class="btn btn-outline-dark" (click)="returnItem(item._id)"><i class="bi bi-dash-lg"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <button class="btn btn-dark" (click)="saveTakeItems()">Vzemi opremo</button>
+    </div>
+  </div>
+</section>

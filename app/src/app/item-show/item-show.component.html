@@ -1,0 +1,134 @@
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5" id="container">
+        <div class="row gx-4 gx-lg-5  justify-content-center" id="row">
+
+
+
+            <form *ngIf="itemForm" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-row">
+                    <div class="col-md-8">
+
+                        <label for="inputCode"> Ime</label>
+                        <input type="text" class="form-control" id="itemName" placeholder="npr. Sekira - Velika" formControlName="itemName">
+
+                        <!--ERROR IME-->
+                        <div *ngIf="itemForm.controls['itemName'].invalid && 
+                                itemForm.controls['itemName'].errors && 
+                                (itemForm.controls['itemName'].dirty || itemForm.controls['itemName'].touched || wasSubmitted)">
+                            <small class="text-danger"
+                                *ngIf="itemForm.controls['itemName'].hasError('required')">
+                                To polje je obvezno
+                            </small>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputLong"> Količina</label>
+                        <input type="number" step="1" class="form-control" formControlName="itemQuantity" placeholder="0">
+
+                        <!--ERROR KOLICINA-->
+                        <div *ngIf="itemForm.controls['itemQuantity'].invalid && 
+                                itemForm.controls['itemQuantity'].errors && 
+                                (itemForm.controls['itemQuantity'].dirty || itemForm.controls['itemQuantity'].touched || wasSubmitted)">
+                            <small class="text-danger"
+                                *ngIf="itemForm.controls['itemQuantity'].hasError('min')">
+                                Količina mora biti vsaj 1
+                            </small>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-row">
+                    <div class="col-md-6">
+
+                        <label for="inputType"> Tip</label>
+                        <select id="inputType" class="form-control form-select" formControlName="itemType">
+                            <option *ngFor="let type of itemTypes; let i = index" [value]="i">{{ itemTypes[i] }}</option>
+                        </select>
+
+                        <!--ERROR TIP-->
+                        <div *ngIf="itemForm.controls['itemType'].invalid && 
+                                itemForm.controls['itemType'].errors && 
+                                (itemForm.controls['itemType'].dirty || itemForm.controls['itemType'].touched || wasSubmitted)">
+                            <small class="text-danger"
+                                *ngIf="itemForm.controls['itemType'].hasError('min')">
+                                Potrebno je izbrati tip opreme
+                            </small>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCode"> Koda</label>
+                        <input type="text" class="form-control" id="inputCode" placeholder="npr. sek-vel" formControlName="itemCode" >
+
+                        <!--ERROR KODA-->
+                        <div *ngIf="itemForm.controls['itemCode'].invalid && 
+                                itemForm.controls['itemCode'].errors && 
+                                (itemForm.controls['itemCode'].dirty || itemForm.controls['itemCode'].touched || wasSubmitted)">
+                            <small class="text-danger"
+                                *ngIf="itemForm.controls['itemCode'].hasError('required')">
+                                To polje je obvezno
+                            </small>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                
+                <label for="inputDesc"> Opis predmeta</label>
+                <textarea type="text" class="form-control" id="inputDesc" placeholder="Dodaj opis" rows="3" formControlName="itemDesc"></textarea>
+            
+
+                
+                <label for="inputWrh"> Skladišče</label>
+                <select id="inputWrh" class="form-control form-select" formControlName="itemWrh">
+                    <option *ngFor="let wrh of defLocations; let i = index" [value]="defLocations[i]._id"> {{defLocations[i].name}} </option>
+                </select>
+
+                <!--ERROR SKLADISCE-->
+                <div *ngIf="itemForm.controls['itemWrh'].invalid && 
+                        itemForm.controls['itemWrh'].errors && 
+                        (itemForm.controls['itemWrh'].dirty || itemForm.controls['itemWrh'].touched || wasSubmitted)">
+                    <small class="text-danger"
+                        *ngIf="itemForm.controls['itemWrh'].hasError('min')">
+                        Potrebno je izbrati skladišče
+                    </small>
+                </div>
+                
+
+                <button [disabled]="!inWrh" type="submit" class="btn btn-my-purple" > Posodobi</button>
+
+                <button [disabled]="!inWrh" type="button"  class="btn btn-danger ml-3" style="margin-top: 10px;" (click)="onDelete()" > Izbriši</button>
+
+                <!--ERROR NI V SKLADISCU-->
+                <div *ngIf="!inWrh">
+                    <small class="text-danger">
+                        Za urejanje in brisanje opreme morajo biti vsi kosi opreme v skladišču
+                    </small>
+                </div>
+
+
+            </form>
+
+            <div *ngIf="!itemForm" class="row">
+                <div class="col-12 text-center">
+                    <div  class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+        </div>
+    </div>   
+</section>

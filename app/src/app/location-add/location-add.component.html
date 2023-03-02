@@ -1,0 +1,90 @@
+<section class='py-5'>
+    
+    <div class="container px-4 px-lg-5 mt-5" id="container">
+        <div class="row gx-4 gx-lg-5  justify-content-center" id="row">
+
+
+            <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+
+                <label for="inputName"> Ime</label>
+                <input type="text" class="form-control" id="inputName" formControlName="locName" placeholder="npr. Tabor IV 2022/Skladišče-Rakovnik...">
+
+                <!--ERROR IME-->
+                <div *ngIf="locationForm.controls['locName'].invalid && 
+                        locationForm.controls['locName'].errors && 
+                        (locationForm.controls['locName'].dirty || locationForm.controls['locName'].touched || wasSubmitted)">
+                    <small class="text-danger"
+                        *ngIf="locationForm.controls['locName'].hasError('required')">
+                        To polje je obvezno
+                    </small>
+                </div>
+
+
+                <label for="inputAddr" class="mt-3"> Naslov</label>
+                <input type="text" class="form-control" id="inputAddr" formControlName="locAddress" placeholder="Rakovniška ulica 6, 1000 Ljubljana">
+
+                <!--ERROR NASLOV-->
+                <div *ngIf="locationForm.controls['locAddress'].invalid && 
+                        locationForm.controls['locAddress'].errors && 
+                        (locationForm.controls['locAddress'].dirty || locationForm.controls['locAddress'].touched || wasSubmitted)">
+                    <small class="text-danger"
+                        *ngIf="locationForm.controls['locAddress'].hasError('required')">
+                        To polje je obvezno
+                    </small>
+                </div>
+
+
+
+                <label for="inputDesc" class="mt-3"> Opis lokacije</label>
+                <textarea type="text" class="form-control" id="inputDesc" placeholder="Dodaj opis" rows="3" formControlName="locDesc"></textarea>
+
+
+                <div class="form-row mt-3">
+                    <div class="col-md-5">
+                        <label for="inputLati"> Zemljepisna širina - X</label>
+                        <input type="number" step="any" class="form-control" id="inputLati" formControlName="locLati" placeholder="46.037394">
+
+                        <!--ERROR X-->
+                        <div *ngIf="locationForm.controls['locLati'].invalid && 
+                                locationForm.controls['locLati'].errors && 
+                                (locationForm.controls['locLati'].dirty || locationForm.controls['locLati'].touched || wasSubmitted)">
+                            <small class="text-danger"
+                                *ngIf="locationForm.controls['locLati'].hasError('min') || locationForm.controls['locLati'].hasError('max')">
+                                Zemljepisna širina mora biti med -90 in 90
+                            </small>
+                        </div>
+                        <div *ngIf="coordinatesError.length > 0">
+                            <small class="text-danger">
+                                {{ coordinatesError }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputLong"> Zemljepisna dolžina - Y</label>
+                        <input type="number" step="any" class="form-control" id="inputLong" formControlName="locLong" placeholder="14.525903">
+
+                        <!--ERROR Y-->
+                        <div *ngIf="locationForm.controls['locLong'].invalid && 
+                                locationForm.controls['locLong'].errors && 
+                                (locationForm.controls['locLong'].dirty || locationForm.controls['locLong'].touched || wasSubmitted)">
+                            <small class="text-danger"
+                                *ngIf="locationForm.controls['locLong'].hasError('min') || locationForm.controls['locLong'].hasError('max')">
+                                Zemljepisna dolžina mora biti med -180 in 180
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pt-4 text-center">
+                        <button class="btn btn-dark" type="button" (click)="addressToCoord()">Povleci</button>
+                    </div>
+                </div>
+
+                <div class="form-switch my-switch">
+                    <input class="form-check-input" id="inputIsDef" type="checkbox" role="switch" formControlName="locIsDefault">
+                    <label class="form-check-label" for="inputIsDef"> Je skladišče? </label>
+                </div>
+
+                <button type="submit" class="btn btn-my-purple" > Dodaj</button>
+            </form>
+        </div>
+    </div>   
+</section>

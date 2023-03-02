@@ -1,0 +1,38 @@
+<section class='py-5'>  
+
+    <div class="container px-4 px-lg-5 mt-5" id="container">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="row">
+
+            <div class="col mb-5" *ngFor="let loc of locations">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+
+
+                            <i [ngClass]="{'bi-archive-fill' : loc.locationType == 'permanent',
+                                           'bi-pin-map-fill' : loc.locationType != 'permanent' }"
+                            class ="bi" style="font-size: 3rem"></i>
+
+                            <h5 class="fw-bolder mt-4">{{ loc.name }}</h5>
+                            <p>Število kosov opreme: {{ loc.numberOfItems }}</p>
+                            <br>
+                            <cite>{{ loc.description }}</cite>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <a class="btn btn-outline-dark mt-auto" [routerLink]="['/location-show', loc._id]">Preglej</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>  
+
+
+</section>  
+
