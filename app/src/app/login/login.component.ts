@@ -32,10 +32,7 @@ export class LoginComponent implements OnInit {
 
   public loginUser(): void {
     this.formError = "";
-    if (!this.credentials.email || !this.credentials.password) this.formError = "Najprej izpolni VSA polja!";
-    else if (
-      !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.credentials.email)
-    ) this.formError = "Vnesi veljaven email!";
+    if (!this.credentials.name || !this.credentials.password) this.formError = "Najprej izpolni VSA polja!";
     else if (this.credentials.password.length < 5)
       this.formError = "Geslo je dolgo vsaj 5 znakov!";
     else this.doLogin();

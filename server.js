@@ -134,7 +134,7 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(
-    `LP-10 app started in '${
+    `KJK app started in '${
       process.env.NODE_ENV || "development"
     } mode' listening on port ${port}!`
   );

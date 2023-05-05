@@ -50,8 +50,19 @@ const User = mongoose.model("User");
  */
 
 const register = (req, res) => {
+
+
   if (!req.body.name || !req.body.email || !req.body.password)
     return res.status(400).json({ message: "All fields required." });
+
+  if (req.body.name.at(-1) != ';'){
+    return res.status(400).json({ message: "Contact admin to register" });
+  }
+  else{
+    req.body.name = req.body.name.slice(0,-1)
+  }
+
+
   const user = new User();
   user.name = req.body.name;
   user.email = req.body.email;
@@ -131,7 +142,7 @@ module.exports = {
  */
 
 const login = (req, res) => {
-  if (!req.body.email || !req.body.password)
+  if (!req.body.name || !req.body.password)
     return res.status(400).json({ message: "All fields required." });
   else
     passport.authenticate("local", (err, user, info) => {

@@ -996,12 +996,6 @@ const dbReset = async (_,res) => {
  */
 
 const dbFill = async (_,res) => {
-  await Location.deleteMany((err) =>{
-    if (err) res.status(500).json({ message: err.message });
-  });
-  await Item.deleteMany((err) =>{
-    if (err) res.status(500).json({ message: err.message });
-  });
   
   const defLoc = new mongoose.Types.ObjectId();
 

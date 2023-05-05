@@ -27,8 +27,8 @@ export class LocationListComponent implements OnInit {
     this.message = "Getting all locations...";
     this.dataService.getLocations()
     .subscribe(locations => {
-      this.locations = locations.sort(this.permFirst);
 
+      this.locations = locations.sort(this.permFirst);
       
 
       for(let i=0; i < this.locations.length; i++) {
@@ -42,6 +42,7 @@ export class LocationListComponent implements OnInit {
         else {
           this.dataService.getAvailableItems(this.locations[i]._id).subscribe(items => {this.locations[i].numberOfItems = items.length});
         }
+
         
       }
 

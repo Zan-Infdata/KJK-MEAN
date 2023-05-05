@@ -71,10 +71,11 @@ export class KjkDataService {
 
   public getLocations(): Observable<Location[]> {
     const url: string = `${this.apiUrl}/locations`;
+    console.log(url);
     const header = this.authHeader();
     return this.http
       .get<Location[]>(url, { headers: header })
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(retry(1), catchError(this.handleError)); 
   }
 
   public getLocationById(id: string): Observable<Location> {

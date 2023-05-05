@@ -6,8 +6,8 @@
       <div class="mb-md-5 mt-md-4 pb-5">
         <div class="alert alert-danger" *ngIf="formError" role="alert">{{ formError }}</div>
         <div class="form-outline form-white mb-4">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" placeholder="johnny@novak.si" [(ngModel)]="credentials.email" />
+          <label class="form-label">Uporabnik</label>
+          <input type="text" class="form-control" placeholder="ime" [(ngModel)]="credentials.name" />
         </div>
         <div class="form-outline form-white mb-4">
           <label class="form-label">Geslo</label>

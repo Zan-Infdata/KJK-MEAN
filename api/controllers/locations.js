@@ -267,9 +267,9 @@ const locationById = (req,res) => {
         .status(400)
         .json({ message: "No location with id " + req.params.locId });
     else {
-      setTimeout(() => {
-        res.status(200).json(result);
-      },5000);
+      
+      res.status(200).json(result);
+      
     }
   })
 }

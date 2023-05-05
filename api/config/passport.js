@@ -6,11 +6,11 @@ const User = mongoose.model("User");
 passport.use(
   new LocalStrategy(
     {
-      usernameField: "email",
+      usernameField: "name",
       passwordField: "password",
     },
     (username, password, cbDone) => {
-      User.findOne({ email: username }, (err, user) => {
+      User.findOne({ name: username }, (err, user) => {
         if (err) return cbDone(err);
         if (!user)
           return cbDone(null, false, { message: "Incorrect username." });
