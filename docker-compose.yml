@@ -10,18 +10,18 @@ services:
     build: ./
     environment:
       - NODE_ENV=production
-    networks:
-      - kjk-network
-
-  mongo-db:
-    image: mongo
-    container_name: kjk-mongo-db
-    ports:
-      - "27017-27019:27017-27019"
-    networks:
-      - kjk-network
-
-networks:
-  kjk-network:
-    name: kjk-network
-    driver: bridge
+#    networks:
+#      - kjk-network
+#
+#  mongo-db:
+#    image: mongo
+#    container_name: kjk-mongo-db
+#    ports:
+#      - "27017-27019:27017-27019"
+#    networks:
+#      - kjk-network
+#
+#networks:
+#  kjk-network:
+#    name: kjk-network
+#    driver: bridge
