@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router,RoutesRecognized } from '@angular/router';
 import { User } from "../shared/classes/user";
 import { AuthenticationService } from "../shared/services/authentication.service";
@@ -10,10 +10,12 @@ import { AuthenticationService } from "../shared/services/authentication.service
 export class FrameworkComponent implements OnInit {
 
   currentRouteData = { title: '', subtitle: '' };
+  isToggled = false;
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private _elementRef : ElementRef
   ) {}
 
   public logout(): void {
@@ -28,6 +30,13 @@ export class FrameworkComponent implements OnInit {
   public getCurrentUser(): string {
     const user: User | null = this.authenticationService.getCurrentUser();
     return user ? user.name : "Guest";
+  }
+
+  public toggleNavbar(): void {
+    let navbar = this._elementRef.nativeElement.querySelector(`#navbarSupportedContent`);
+    navbar.style.display = this.isToggled ? 'block' : 'none';
+    this.isToggled =  !this.isToggled;
+    console.log(this.isToggled);
   }
 
   ngOnInit(): void {
