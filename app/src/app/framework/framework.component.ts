@@ -10,7 +10,7 @@ import { AuthenticationService } from "../shared/services/authentication.service
 export class FrameworkComponent implements OnInit {
 
   currentRouteData = { title: '', subtitle: '' };
-  isToggled = false;
+  isToggled = true;
 
   constructor(
     private router: Router,
@@ -36,7 +36,6 @@ export class FrameworkComponent implements OnInit {
     let navbar = this._elementRef.nativeElement.querySelector(`#navbarSupportedContent`);
     navbar.style.display = this.isToggled ? 'block' : 'none';
     this.isToggled =  !this.isToggled;
-    console.log(this.isToggled);
   }
 
   ngOnInit(): void {

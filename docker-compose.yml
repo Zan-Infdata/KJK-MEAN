@@ -9,7 +9,7 @@ services:
     image: kjk-server
     build: ./
     environment:
-      - NODE_ENV=test
+      - NODE_ENV=production
     networks:
       - kjk-network
 
