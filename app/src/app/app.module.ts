@@ -30,7 +30,7 @@ import { LoginComponent } from './login/login.component';
 import { ItemShowComponent } from './item-show/item-show.component';
 
 const routes: Routes = [
-  { path: "", component: AboutComponent, data: { title: "Kje je kaj?", subtitle: "To je uradna aplikacija projekta Kje je kaj?" } },
+  { path: "", component: AboutComponent, data: { title: "Kje je kaj?", subtitle: "To je aktivna aplikacija za sledenje opremi v stegu Ljubljana 2" } },
   { path: "locations", component: LocationListComponent, data: { title: "Stanje po lokacijah", subtitle: "Preglej koliko opreme je na lokaciji" } },
   { path: "items", component: ItemListComponent, data: { title: "Seznam opreme", subtitle: "Oglej si seznam opreme in ga po potrebi dopolni/popravi" } },
   { path: "location-add", component: LocationAddComponent, data: { title: "Dodajanje lokacije", subtitle: "Dodaj novo lokacijo" } },

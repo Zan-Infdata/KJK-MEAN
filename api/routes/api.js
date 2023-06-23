@@ -34,8 +34,8 @@ router.post("/item-return",auth,ctrlItems.returnItem);
 router.put("/item/:itmId",auth,ctrlItems.updateItem);
 
 
-router.get("/db-reset",ctrlItems.dbReset);
-router.get("/db-fill",ctrlItems.dbFill);
+//router.get("/db-reset",ctrlItems.dbReset);
+//router.get("/db-fill",ctrlItems.dbFill);
 
 /**
  * Authentication
