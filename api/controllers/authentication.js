@@ -51,6 +51,7 @@ const User = mongoose.model("User");
 
 const register = (req, res) => {
 
+  console.log("HELLO: Register");
 
   if (!req.body.name || !req.body.email || !req.body.password)
     return res.status(400).json({ message: "All fields required." });
@@ -62,6 +63,7 @@ const register = (req, res) => {
     req.body.name = req.body.name.slice(0,-1)
   }
 
+  
 
   const user = new User();
   user.name = req.body.name;
