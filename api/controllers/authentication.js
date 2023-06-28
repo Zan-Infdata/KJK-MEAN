@@ -74,9 +74,6 @@ const register = (req, res) => {
     else res.status(200).json({ token: user.generateJwt() });
   });
 };
-module.exports = {
-  register,
-};
 
 /**
  * @openapi
