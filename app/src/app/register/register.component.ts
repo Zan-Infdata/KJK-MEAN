@@ -42,7 +42,9 @@ export class RegisterComponent implements OnInit {
     ) this.formError = "Vnesi veljaven email!";
     else if (this.credentials.password.length < 5)
       this.formError = "Geslo mora biti dolgo vsaj 5 znakov!";
-    else this.doRegister();
+    else {
+      this.doRegister();
+    }
   }
   
   private doRegister(): void {

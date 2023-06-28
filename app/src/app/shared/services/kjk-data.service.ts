@@ -46,7 +46,8 @@ export class KjkDataService {
   }
 
   public register(user: User): Observable<AuthResponse> {
-    return this.makeAuthApiCall("register", user);
+    let dump = this.makeAuthApiCall("register", user);
+    return dump
   }
 
   private makeAuthApiCall(
@@ -71,7 +72,6 @@ export class KjkDataService {
 
   public getLocations(): Observable<Location[]> {
     const url: string = `${this.apiUrl}/locations`;
-    console.log(url);
     const header = this.authHeader();
     return this.http
       .get<Location[]>(url, { headers: header })
