@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
-var dbURI = "mongodb://localhost/KjeJeKaj";
-if (process.env.NODE_ENV === "production")
-  dbURI = process.env.MONGODB_ATLAS_URI;
-else if (process.env.NODE_ENV === "test")
-  dbURI = "mongodb://kjk-mongo-db/KjeJeKaj";
+var dbURI = process.env.MONGODB_ATLAS_URI;
 mongoose.connect(dbURI);
 
 mongoose.connection.on("connected", () => {
