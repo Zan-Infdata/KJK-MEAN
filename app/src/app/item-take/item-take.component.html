@@ -23,20 +23,20 @@
       <table class="table table-responsive table-hover">
         <thead class="thead-light">
           <tr>
-            <th scope="col">Koda</th>
+            <!--<th scope="col">Koda</th>-->
             <th scope="col">Naziv opreme</th>
             <th scope="col">Vrsta</th>
-            <th scope="col">Opis</th>
+            <!--<th scope="col">Opis</th>-->
             <th scope="col" class="text-center">Na voljo</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of availableItems" class="align-middle">
-            <td>{{ item.code }}</td>
+            <!--<td>{{ item.code }}</td>-->
             <th scope="col">{{ item.name }}</th>
             <td>{{ item.itemType }}</td>
-            <td>{{ item.description }}</td>
+            <!--<td>{{ item.description }}</td>-->
             <td class="text-center">{{ item.quantity }}</td>
             <td><button class="btn btn-outline-dark" (click)="takeItem(item._id)"><i class="bi bi-plus-lg"></i></button></td>
           </tr>
