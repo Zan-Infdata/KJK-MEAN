@@ -10,20 +10,17 @@ Poleg tega pa je implementirana tudi avtentikacija, ki poskrbi, da do podatkov o
 
 ## Namestitev aplikacije
 ### Javni dostop
-Aplikacijo trenutno poganja okolje Fly.io in je na voljo na povezavi [kje-je-kaj.fly.dev](https://kje-je-kaj.fly.dev/).
-### Lokalno poganjanje
-Za lokalno poganjanje je pred ustvarjanjem Docker slike potebno zgraditi aplikacijo Angular.<br />
-To storimo z:
-1. `cd app`
-2. `npm install`
-3. `ng build`
-4. `cd ..`
+Aplikacijo trenutno poganja okolje Fly.io in je na voljo na povezavi [https://skladisce-lj2.onrender.com](https://skladisce-lj2.onrender.com).
 
-Nato moramo nastaviti okoljsko spremenljivko `JWT_SECRET` v datoteki `.env`.<br />
-Ko smo vse zgoraj omenjeno pognali in nastavili, lahko poženemo `docker-compose up`.
+### Lokalno poganjanje
+V datoteki `.env` nastavimo okoljske spremenljivke `NODE_ENV`, `MONGO_ATLAS_URI` in `JWT_SECRET`
+Lokalno poženemo z ukazi
+1. `npm install`
+3. `cd app`
+3. `ng serve`
 
 ## Uporaba aplikacije
-Obiščemo spletno aplikacijo na naslovu [localhost:3000](http://localhost:3000) ali [kje-je-kaj.fly.dev](https://kje-je-kaj.fly.dev/). Za nadaljevanje moramo biti prijavljeni, v kolikor računa še nimamo, pritisnemo na povezavu in ga ustvarimo.
+Obiščemo spletno aplikacijo na naslovu [localhost:4200](http://localhost:4200) ali [https://skladisce-lj2.onrender.com](https://skladisce-lj2.onrender.com). Za nadaljevanje moramo biti prijavljeni.
 Ko smo prijavljeni, dobimo možnost pregleda/dodajanja/spreminjanja lokacij in opreme. Za navigacijo med navedenimi akcijami uporabimo zgornjo vrstico.<br />
 Za izposojo opreme uporabimo 'Vzemi opremo'. Najprej izberemo skladišče, iz katerega jemljemo opremo, nato lokacijo, na katero opremo nesemo (če še ni ustvarjena, jo ustvarimo), in z uporabo gumba '+' v desno tabelo dodamo opremo, ki si jo bomo izposodili.<br />
 Ko opremo poklikamo, pritisnemo gumb 'Vzemi opremo' in se nam odpre stran 'Moja oprema', ki pokaže na katerih lokacijah imamo katero opremo.
