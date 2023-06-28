@@ -51,7 +51,6 @@ const User = mongoose.model("User");
 
 const register = (req, res) => {
 
-  console.log("HELLO: Register");
 
   if (!req.body.name || !req.body.email || !req.body.password)
     return res.status(400).json({ message: "All fields required." });
@@ -70,8 +69,8 @@ const register = (req, res) => {
   user.email = req.body.email;
   user.setPassword(req.body.password);
   user.save((err) => {
-    if (err) res.status(500).json({ message: err.message });
-    else res.status(200).json({ token: user.generateJwt() });
+    if (err) return res.status(500).json({ message: err.message });
+    else return res.status(200).json({ token: user.generateJwt() });
   });
 };
 
